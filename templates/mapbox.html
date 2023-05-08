@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <iframe width='100%' height='600px'
+    src="https://api.mapbox.com/styles/v1/joshphillips43/clge49pdi000s01pqwoijqc5d.html?title=false&access_token=pk.eyJ1Ijoiam9zaHBoaWxsaXBzNDMiLCJhIjoiY2xhdW96M3V0MDhtbTNxbzVkOHU2b2JkZCJ9._E3dSWyBJsG4FV2dCrtoaA&zoomwheel=true#5.3/39.313/-88.567"
+    title="Monochrome" style="border:none;"></iframe>
+
+  <div id="map"></div>
+  <script>
+    mapboxgl.accessToken = 'sk.eyJ1Ijoiam9zaHBoaWxsaXBzNDMiLCJhIjoiY2xoZTB0eWRqMHJ4MjNlbGt4aDlzb2w5NyJ9._gNmfmOP0uteXUbAE9UyxQ';
+    const map = new mapboxgl.Map({
+      container: 'map', // container ID
+      style: 'mapbox://styles/joshphillips43/clge49pdi000s01pqwoijqc5d', // style URL
+      center: [-84.5, 40], // starting position [lng, lat]
+      zoom: 4 // starting zoom
+    });
+  </script>
+</body>
+
+</html>
