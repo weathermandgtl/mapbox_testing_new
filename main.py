@@ -31,6 +31,8 @@ print(f'Extracted {time.perf_counter() - start}')
 if os.path.exists(local_filename):
     os.remove(local_filename)
 
+print(os.listdir())
+
 # import convert
 # os.system('pip install fiona')
 os.system('fio cat current_all/current_all.shp > current_all.geojson.ld')
