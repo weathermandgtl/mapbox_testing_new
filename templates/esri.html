@@ -1,0 +1,86 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>ArcGIS Developer Guide: Data layers (Feature layers)</title>
+  <style>
+    html, body, #viewDivv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+<link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css">
+<script src="https://js.arcgis.com/4.26"></script>
+
+  <script>
+    require([
+      "esri/config",
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/Basemap",
+      "esri/layers/FeatureLayer",
+      "esri/layers/VectorTileLayer"
+    ],(esriConfig, Map, MapView, Basemap, FeatureLayer, VectorTileLayer)=> {
+
+      esriConfig.apiKey = "AAPK7ba37d8782df460781a549dff263cad7LynZICbqPP0RBza0E9mq_pMA7P1s8gHr327hPlSdsKWHcMPHu7UwdojSHMSx-mnT";
+
+      const basemap = new Basemap({
+          baseLayers: [
+            new VectorTileLayer({
+              portalItem: {
+                id: "8c9d2d17c0ba489787d0f063b8c9467b" // Forest and Parks Canvas style
+              }
+            })
+          ]
+        });
+      const map = new Map({
+        basemap: basemap, //Basemap service
+      });
+
+      // https://basemaps-api.arcgis.com/arcgis/rest/services/styles/8c9d2d17c0ba489787d0f063b8c9467b?type=style&token=YOUR_API_KEY
+
+      const view = new MapView({
+        container: "viewDivv",
+        map: map,
+        center: [-96.10543,38.8700], //Longitude, latitude
+        zoom: 5,
+        constraints: {
+          snapToZoom: false
+        }
+      });
+
+      const alertsLayerSevere = new FeatureLayer({
+        url:"https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/NWS_Watches_Warnings_v1/FeatureServer/10"
+      });
+      map.add(alertsLayerSevere, 0);
+
+      const hurricanes = new FeatureLayer({
+        url:"https://services.arcgis.com/EYoES28WFqwSJgmt/arcgis/rest/services/monitor_websites/FeatureServer/0"
+      });
+      map.add(hurricanes, 0);
+      // const alertsLayerModerate = new FeatureLayer({
+      //   url:"https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/NWS_Watches_Warnings_v1/FeatureServer/9"
+      // });
+      // map.add(alertsLayerModerate, 0);
+      //
+      // const alertsLayerMinor = new FeatureLayer({
+      //   url:"https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/NWS_Watches_Warnings_v1/FeatureServer/11"
+      // });
+      // map.add(alertsLayerMinor, 0);
+
+      const radarLayer = new FeatureLayer({
+        url:"https://utility.arcgis.com/usrsvcs/servers/f4310f4a850e45ab97e6f8cf1b255c5b/rest/services/NorthAmerica/Radar_NorthAmerica_Latest/MapServer"
+      });
+      map.add(radarLayer,0);
+    });
+
+  </script>
+</head>
+<body>
+  <div id="viewDivv"></div>
+  <!-- <div id="viewDivv"></div> -->
+</body>
+</html>
