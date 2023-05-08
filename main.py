@@ -34,7 +34,6 @@ if os.path.exists(local_filename):
 print(os.listdir())
 
 # import convert
-os.system('sudo apt-get install libexpat1-dev')
 os.system('pip install fiona')
 os.system('fio cat current_all/current_all.shp > current_all.geojson.ld')
 print(f'Converted {time.perf_counter() - start}')
