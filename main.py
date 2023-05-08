@@ -33,9 +33,9 @@ if os.path.exists(local_filename):
 
 print(os.listdir())
 
-# import convert
+import convert
 # os.system('pip install fiona')
-os.system('fio cat current_all/current_all.shp > current_all.geojson.ld')
+# os.system('fio cat current_all/current_all.shp > current_all.geojson.ld')
 print(f'Converted {time.perf_counter() - start}')
 
 os.system(f'tilesets upload-source joshphillips43 current_all current_all.geojson.ld --replace --token {token}')
