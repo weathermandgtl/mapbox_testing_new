@@ -1,7 +1,0 @@
-# railway.yml
-name: mapbox_testing_new
-
-env:
-  install:
-    # Install the libexpat1 library
-    - sudo apt-get update && sudo apt-get -y install libexpat1-dev
