@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "layers": {
+    "district_links": {
+      "source": "mapbox://tileset-source/joshphillips43/district_links",
+      "minzoom": 0,
+      "maxzoom": 5
+    }
+  }
+}
