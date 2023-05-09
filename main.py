@@ -31,7 +31,7 @@ print(f'Extracted {time.perf_counter() - start}')
 if os.path.exists(local_filename):
     os.remove(local_filename)
 
-print(os.listdir())
+# print(os.listdir())
 
 # import convert
 # os.system('pip install fiona')
