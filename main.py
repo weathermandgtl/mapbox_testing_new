@@ -38,7 +38,7 @@ if os.path.exists(local_filename):
 # os.system('fio cat current_all/current_all.shp > current_all.geojson.ld')
 # print(f'Converted {time.perf_counter() - start}')
 
-os.system('pip install mapbox-tilesets')
+# os.system('pip install mapbox-tilesets')
 os.system(f'tilesets upload-source joshphillips43 current_all current_all.geojson.ld --replace --token {token}')
 os.system(f'tilesets publish joshphillips43.current_all --token {token}')
 print(f'{time.perf_counter() - start}')
