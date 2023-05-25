@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 from datetime import datetime
+import schedule as sch
 import requests
-import schedule
 import tarfile
 import time
 import os
@@ -40,10 +40,10 @@ def job():
     print(f'{time.perf_counter() - start}')
 
 
-schedule.every(4).minutes.do(job)
+sch.every(4).minutes.do(job)
 
 job()
 while True:
     print('here')
-    schedule.run_pending()
+    sch.run_pending()
     time.sleep(5)
