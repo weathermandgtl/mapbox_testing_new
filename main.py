@@ -40,10 +40,12 @@ def job():
     print(f'{time.perf_counter() - start}')
 
 
-sch.every(4).minutes.do(job)
+# sch.every(4).minutes.do(job)
 
-job()
+# job()
 while True:
     print('here')
-    sch.run_pending()
-    time.sleep(5)
+    job()
+    # sch.run_pending()
+    time.sleep(250)
+
